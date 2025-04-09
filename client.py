@@ -138,6 +138,7 @@ class MCPClient:
                     tools=available_tools
                 )
                 content_iter = iter(response.content)
+                assistant_message_content = []
                 final_text.append(response.content[0].text)
 
 
