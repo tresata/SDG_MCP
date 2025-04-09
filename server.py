@@ -49,6 +49,27 @@ def read_top_5_reccords(FilePath: str) -> pd.DataFrame:
     """
     return pd.read_csv(FilePath).head(5)
 
+
+@mcp.tool()
+def execute_python_script(script: str) -> str:
+    """
+    Executes a Python script provided as a string.
+
+    Parameters:
+        script (str): The Python code to be executed.
+
+    Returns:
+        str: "Success" if the script executes without errors.
+             Otherwise, returns "Failure" followed by the error message.
+    """
+    try:
+        exec(script)
+        return "Success"
+    except Exception as e:
+        return f"Failure: {str(e)}"
+
+
+
 if __name__=="__main__":
     mcp.run(transport="stdio")
 
