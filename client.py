@@ -129,13 +129,15 @@ class MCPClient:
                     ]
                 })
 
+                print(self.message_history)
                 # Get next response from Claude
-                response.content + (self.anthropic.messages.create(
+                response = self.anthropic.messages.create(
                     model="claude-3-5-sonnet-20241022",
                     max_tokens=1000,
                     messages=self.message_history,
                     tools=available_tools
-                )).content
+                )
+                content_iter = iter(response.content)
                 final_text.append(response.content[0].text)
 
 
