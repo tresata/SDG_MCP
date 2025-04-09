@@ -93,17 +93,24 @@ class MCPClient:
         final_text = []
 
         assistant_message_content = []
-        for content in response.content:
+        content_iter = iter(response.content)
+        while True:
+            try:
+                content = next(content_iter)
+            except StopIteration:
+                break
+            print("\n New content")
+            print(content)
             if content.type == 'text':
                 final_text.append(content.text)
                 assistant_message_content.append(content)
             elif content.type == 'tool_use':
                 tool_name = content.name
                 tool_args = content.input
+                print(tool_name)
+                print(tool_args)
 
-                # Execute tool call
                 result = await self.session.call_tool(tool_name, tool_args)
-                print(result.content)
                 final_text.append(f"[Calling tool {tool_name} with args {tool_args}]")
 
                 assistant_message_content.append(content)
@@ -123,13 +130,12 @@ class MCPClient:
                 })
 
                 # Get next response from Claude
-                response = self.anthropic.messages.create(
+                response.content + (self.anthropic.messages.create(
                     model="claude-3-5-sonnet-20241022",
                     max_tokens=1000,
                     messages=self.message_history,
                     tools=available_tools
-                )
-
+                )).content
                 final_text.append(response.content[0].text)
 
 
