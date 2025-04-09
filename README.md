@@ -35,13 +35,19 @@ cd SDG_MCP
 pip install -e .
 ```
 
+3. Export Anthropic Api Key
+
+```
+export ANTHROPIC_API_KEY=<your_api_key>
+```
 ## Usage
 
 ### Starting the Server
 
 Run the server using:
-```bash
-python server.py
+```
+uv run client.py server.py
+
 ```
 
 ### Using the Client
@@ -59,11 +65,10 @@ The client provides an interactive interface where you can:
 
 ## Available Tools
 
-1. **add(a, b)**: Simple addition of two numbers
-2. **read_schema(FilePath)**: Returns the schema of a CSV file
-3. **read_top_5_reccords(FilePath)**: Displays the first 5 records of a CSV file
-4. **execute_python_script(script)**: Executes custom Python code
-5. **generate_synthetic_data_from_gan(FilePath)**: Generates synthetic data using CTGAN
+1. **read_schema(FilePath)**: Returns the schema of a CSV file
+2. **read_top_5_reccords(FilePath)**: Displays the first 5 records of a CSV file
+3. **execute_python_script(script)**: Executes custom Python code
+4. **generate_synthetic_data_from_gan(FilePath)**: Generates synthetic data using CTGAN
 
 ## Project Structure
 
