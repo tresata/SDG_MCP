@@ -9,4 +9,5 @@ dependencies = [
     "fastmcp>=0.4.1",
     "mcp[cli]>=1.6.0",
     "pandas>=2.2.3",
+    "sdv[tabular]>=1.19.0",
 ]
