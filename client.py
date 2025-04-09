@@ -103,6 +103,7 @@ class MCPClient:
 
                 # Execute tool call
                 result = await self.session.call_tool(tool_name, tool_args)
+                print(result.content)
                 final_text.append(f"[Calling tool {tool_name} with args {tool_args}]")
 
                 assistant_message_content.append(content)

@@ -8,6 +8,11 @@ import pandas as pd
 
 mcp = FastMCP("SDG-MCP-SERVER")
 
+# Optional: set max columns and width to display full DataFrame
+pd.set_option('display.max_columns', None)  # Show all columns
+pd.set_option('display.width', None)        # Disable line wrapping
+
+
 @mcp.tool()
 def add(a:int , b:int):
     """add two numbers"""
