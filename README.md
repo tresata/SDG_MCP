@@ -1,6 +1,6 @@
-# SDG MCP (Synthetic Data Generation - Model Control Protocol)
+# SDG MCP (Synthetic Data Generation - Model Context Protocol)
 
-A Python-based tool for generating synthetic data using CTGAN (Conditional Tabular GAN) with an interactive client-server architecture.
+A Python-based tool for generating synthetic data using CTGAN (Conditional Tabular GAN) with an interactive MCP client-server architecture.
 
 ## Features
 
