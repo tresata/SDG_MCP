@@ -32,7 +32,7 @@ cd SDG_MCP
 
 2. Install dependencies:
 ```bash
-pip install -e .
+pip install -r requirements.txt
 ```
 
 3. Export Anthropic Api Key
